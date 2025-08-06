@@ -4,6 +4,25 @@ import { useWallet } from '../hooks/useSolana';
 const Header = () => {
   const { connectWallet, disconnectWallet, walletAddress } = useWallet();
 
+  const handleConnect = async () => {
+    // Check if on mobile device
+    const isMobile = /Android|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile && !window.solana) {
+      const confirmed = window.confirm(
+        "To use this app on mobile:\n" +
+        "1. Install the Phantom Wallet app\n" +
+        "2. Open this website in your mobile browser (not within the Phantom app)\n" +
+        "3. Try connecting again\n\n" +
+        "Press OK to continue with connection attempt."
+      );
+      
+      if (!confirmed) return;
+    }
+    
+    await connectWallet();
+  };
+
   return (
     <header className="bg-black bg-opacity-30 backdrop-blur-md border-b border-indigo-500">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -24,7 +43,7 @@ const Header = () => {
           </button>
         ) : (
           <button 
-            onClick={connectWallet}
+            onClick={handleConnect}
             className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 px-4 py-2 rounded-lg transition-all"
           >
             Connect Wallet
