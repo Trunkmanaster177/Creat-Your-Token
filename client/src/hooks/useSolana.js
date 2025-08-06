@@ -1,10 +1,4 @@
 import React, { createContext, useContext, useState } from 'react';
-import {
-  Connection,
-  PublicKey,
-  Transaction,
-  SystemProgram
-} from '@solana/web3.js';
 
 // Create context
 const WalletContext = createContext();
@@ -35,18 +29,6 @@ export const WalletProvider = ({ children }) => {
           }
         }
       } 
-      // Check for generic Solana provider
-      else if (window.solana) {
-        console.log("Generic Solana provider detected");
-        try {
-          const response = await window.solana.connect();
-          setWalletAddress(response.publicKey.toString());
-          console.log("Connected to wallet:", response.publicKey.toString());
-        } catch (err) {
-          console.error("Failed to connect wallet:", err);
-          alert("Failed to connect to wallet. Please make sure it's installed and unlocked.");
-        }
-      }
       // Mobile deep linking for Phantom
       else if (/Android|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent)) {
         handleMobileConnection();
