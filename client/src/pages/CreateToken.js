@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useWallet } from '../hooks/useSolana';
 
 const CreateToken = () => {
-  const { walletAddress, createToken } = useWallet();
+  const { walletAddress, connectWallet, isConnecting, createToken } = useWallet();
   const [tokenData, setTokenData] = useState({
     name: '',
     symbol: '',
@@ -38,6 +38,8 @@ const CreateToken = () => {
     setIsCreating(false);
   };
 
+  const isMobile = /Android|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent);
+
   return (
     <div className="max-w-2xl mx-auto">
       <h1 className="text-4xl font-bold text-center mb-8">Create Your Token</h1>
@@ -45,8 +47,24 @@ const CreateToken = () => {
       {!walletAddress ? (
         <div className="bg-red-900 bg-opacity-50 border border-red-500 rounded-xl p-6 text-center">
           <p className="text-xl mb-4">Please connect your wallet to create a token</p>
-          <button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-lg">
-            Connect Wallet
+          {isMobile && (
+            <div className="bg-yellow-900 bg-opacity-50 border border-yellow-500 rounded-lg p-4 mb-4">
+              <p className="text-yellow-200 font-medium">
+                📱 Mobile Users: After connecting, you may need to:
+              </p>
+              <ol className="list-decimal list-inside mt-2 text-yellow-100 text-left">
+                <li>Approve the connection in the Phantom app</li>
+                <li>Return to this browser tab</li>
+                <li>Refresh the page if needed</li>
+              </ol>
+            </div>
+          )}
+          <button 
+            onClick={connectWallet}
+            disabled={isConnecting}
+            className={`bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-lg ${isConnecting ? 'opacity-50 cursor-not-allowed' : ''}`}
+          >
+            {isConnecting ? 'Connecting to Wallet...' : 'Connect Wallet'}
           </button>
         </div>
       ) : (
