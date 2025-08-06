@@ -19,6 +19,19 @@ const Home = () => {
         </Link>
       </div>
 
+      {/* Mobile Instructions */}
+      <div className="bg-yellow-900 bg-opacity-50 border border-yellow-500 rounded-xl p-6 mt-8">
+        <h3 className="text-xl font-bold mb-2 text-yellow-300">📱 Mobile Users</h3>
+        <p className="text-gray-200">
+          To use this app on mobile devices:
+        </p>
+        <ol className="list-decimal list-inside mt-2 space-y-1 text-gray-300">
+          <li>Install the Phantom Wallet app from your app store</li>
+          <li>Open this website in your mobile browser (Safari/Chrome)</li>
+          <li>Click "Connect Wallet" and select Phantom from the options</li>
+        </ol>
+      </div>
+
       <div className="grid md:grid-cols-2 gap-8 mt-16">
         <div className="bg-black bg-opacity-30 backdrop-blur-md rounded-xl p-6 border border-indigo-500">
           <h2 className="text-2xl font-bold mb-4 text-cyan-300">How to use Solana Token Creator</h2>
