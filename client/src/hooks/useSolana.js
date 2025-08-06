@@ -1,10 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import {
-  Connection,
-  PublicKey,
-  Transaction,
-  SystemProgram,
-  LAMPORTS_PER_SOL
+  Connection
 } from '@solana/web3.js';
 
 // Create context
@@ -13,12 +9,6 @@ const WalletContext = createContext();
 // Provider component
 export const WalletProvider = ({ children }) => {
   const [walletAddress, setWalletAddress] = useState(null);
-  const [connection, setConnection] = useState(null);
-
-  useEffect(() => {
-    const conn = new Connection("https://api.mainnet-beta.solana.com");
-    setConnection(conn);
-  }, []);
 
   const connectWallet = async () => {
     if (window.solana) {
