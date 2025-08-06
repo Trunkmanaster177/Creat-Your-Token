@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <WalletProvider>
-      <Router>
+      <Router basename="/">
         <div className="min-h-screen bg-gradient-to-br from-purple-900 to-indigo-800 text-white">
           <Header />
           <main className="container mx-auto px-4 py-8">
