@@ -281,4 +281,51 @@ const Home = () => {
           <div className="bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700 hover:border-cyan-500 transition-colors">
             <h3 className="font-bold text-xl text-cyan-300 mb-2">What is Solana Token Creator?</h3>
             <p className="text-gray-300">
-              A platform that allows anyone to create their own
+              A platform that allows anyone to create their own Solana-based tokens without any coding knowledge.
+            </p>
+          </div>
+          
+          <div className="bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700 hover:border-cyan-500 transition-colors">
+            <h3 className="font-bold text-xl text-cyan-300 mb-2">How do I create a token?</h3>
+            <p className="text-gray-300">
+              Connect your wallet, fill in token details, pay the 0.1 SOL fee, and click create.
+            </p>
+          </div>
+          
+          <div className="bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700 hover:border-cyan-500 transition-colors">
+            <h3 className="font-bold text-xl text-cyan-300 mb-2">Are there any fees?</h3>
+            <p className="text-gray-300">
+              Yes, there is a 0.1 SOL fee for each token creation to cover network and platform costs.
+            </p>
+          </div>
+          
+          <div className="bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700 hover:border-cyan-500 transition-colors">
+            <h3 className="font-bold text-xl text-cyan-300 mb-2">How does liquidity management work?</h3>
+            <p className="text-gray-300">
+              You can add or remove liquidity manually at any time, or set up automatic liquidity management based on token price.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="text-center py-16">
+        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+          Ready to Launch Your Token?
+        </h2>
+        <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+          Join thousands of creators who have launched their tokens on Solana
+        </p>
+        <Link 
+          to="/create"
+          className="group relative inline-block bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-5 px-10 rounded-full text-xl transition-all transform hover:scale-110 hover:shadow-2xl shadow-pink-500/30 duration-300 overflow-hidden"
+        >
+          <span className="relative z-10">Create Your Token Now</span>
+          <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity"></span>
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default Home;
