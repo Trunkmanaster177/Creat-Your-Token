@@ -1,10 +1,4 @@
 import React, { createContext, useContext, useState } from 'react';
-import {
-  Connection,
-  PublicKey,
-  Transaction,
-  SystemProgram
-} from '@solana/web3.js';
 
 // Create context
 const WalletContext = createContext();
