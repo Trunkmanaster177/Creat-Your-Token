@@ -14,5 +14,21 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    
+    <script>
+      // Wallet detection script
+      window.addEventListener('load', function() {
+        if (window.solana && window.solana.isPhantom) {
+          console.log('Phantom wallet is installed!');
+        } else {
+          console.log('Phantom wallet is not installed');
+        }
+      });
+      
+      // Listen for Phantom wallet events
+      window.addEventListener('solana#initialized', function() {
+        console.log('Phantom wallet initialized');
+      });
+    </script>
   </body>
 </html>
