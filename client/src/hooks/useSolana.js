@@ -1,7 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import {
-  Connection
-} from '@solana/web3.js';
+import React, { createContext, useContext, useState } from 'react';
 
 // Create context
 const WalletContext = createContext();
