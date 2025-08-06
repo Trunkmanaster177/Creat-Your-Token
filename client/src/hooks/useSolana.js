@@ -6,11 +6,6 @@ import {
   SystemProgram,
   LAMPORTS_PER_SOL
 } from '@solana/web3.js';
-import {
-  Program,
-  Provider,
-  web3
-} from '@project-serum/anchor';
 
 // Create context
 const WalletContext = createContext();
@@ -47,7 +42,7 @@ export const WalletProvider = ({ children }) => {
 
   const createToken = async (tokenData) => {
     // This is a simplified version - in reality, you would interact with your Solana program
-    console.log("Creating token with data:", tokenData);
+    console.log("Creating token with ", tokenData);
     
     // Simulate the token creation process
     return new Promise((resolve) => {
